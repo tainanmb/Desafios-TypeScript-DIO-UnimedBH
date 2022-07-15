@@ -13,11 +13,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 //Minha apiKey é  '925c882f3b05c127d42057a341acbb9f';
-let apiKey;
-let requestToken;
-let username;
-let password;
-let sessionId;
+let apiKey = 'psaosjao';
+let requestToken = '';
+let username = 'ojos';
+let password = 'okasoa';
+let sessionId = '';
 let listId = '7101979';
 let loginButton = document.getElementById('login-button');
 let searchButton = document.getElementById('search-button');
@@ -144,7 +144,12 @@ function criarSessao() {
             url: `https://api.themoviedb.org/3/authentication/session/new?api_key=${apiKey}&request_token=${requestToken}`,
             method: "GET"
         });
-        sessionId = result.session_id;
+        if (result.session_id) {
+            sessionId = result.session_id;
+        }
+        else {
+            console.log(result.status_message);
+        }
     });
 }
 function criarLista(nomeDaLista, descricao) {
